@@ -64,7 +64,8 @@
   .el-icon-s-fold,.el-icon-s-unfold {
     width: 50px;
     height: 50px;
-    font-size: 35px;
+    font-size: 30px;
+    color: white;
     line-height: 50px;
   }
 </style>
