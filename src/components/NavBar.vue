@@ -6,7 +6,7 @@
       <i v-if="collapse" class=" el-icon-s-unfold"></i>
     </div>
     <div class="nav-right">
-      <el-avatar :size="size" :src="userPic"></el-avatar>
+      <el-avatar  :src="userPic"></el-avatar>
     </div>
   </div>
 </template>

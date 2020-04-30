@@ -1,11 +1,13 @@
-<!--  -->
+<!-- 菜单管理列表 -->
 <template>
   <div class="">
-    <el-tabs v-model="editableTabsValue" type="card" closable @tab-remove="removeTab">
-      <el-tab-pane v-for="item in editableTabs" :key="item.name" :label="item.title" :name="item.name">
-        {{ item.content }}
-      </el-tab-pane>
-    </el-tabs>
+    <el-form>
+      <el-button type="primary">新增</el-button>
+    </el-form>
+
+    <el-table :data="dataList" border style="width: 100%; " size="medium">
+      <el-table-column v-for="col in columns" :prop="col.prop" :label="col.title" :key="col.id"> </el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -18,45 +20,30 @@
     components: {},
     data() {
       return {
-        editableTabsValue: '2',
-        editableTabs: [
+        dataList: [
           {
-            title: 'Tab 1',
-            name: '1',
-            content: 'Tab 1 content',
+            name: 'xx',
+            url: 'xx',
+            component: 'xxx',
           },
           {
-            title: 'Tab 2',
-            name: '2',
-            content: 'Tab 2 content',
+            name: 'cc',
+            url: 'ccc',
+            component: 'ccc',
           },
         ],
-        tabIndex: 2,
+        columns: [
+          { id: '1', prop: 'name', title: '名称' },
+          { id: '2', prop: 'url', title: '路由' },
+          { id: '3', prop: 'component', title: '组件' },
+        ],
       }
     },
     //监听属性 类似于data概念
     computed: {},
     //监控data中的数据变化
     watch: {},
-    methods: {
-      removeTab(targetName) {
-        let tabs = this.editableTabs
-        let activeName = this.editableTabsValue
-        if (activeName === targetName) {
-          tabs.forEach((tab, index) => {
-            if (tab.name === targetName) {
-              let nextTab = tabs[index + 1] || tabs[index - 1]
-              if (nextTab) {
-                activeName = nextTab.name
-              }
-            }
-          })
-        }
-
-        this.editableTabsValue = activeName
-        this.editableTabs = tabs.filter((tab) => tab.name !== targetName)
-      },
-    },
+    methods: {},
     //生命周期 - 创建完成（可以访问当前this实例）
     created() {},
     //生命周期 - 挂载完成（可以访问DOM元素）

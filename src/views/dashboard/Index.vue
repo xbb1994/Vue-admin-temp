@@ -7,7 +7,8 @@
       </el-aside>
       <el-main>
         <nav-bar></nav-bar>
-        <main-body></main-body>
+        <!-- <main-body></main-body> -->
+        <menu-list></menu-list>
       </el-main>
     </el-container>
   </div>
@@ -20,12 +21,16 @@
   import SideBar from '../../components/SideBar'
   import MainBody from '../../components/MainBody'
 
+  //TODO 先导入菜单模块，用来配置，后续取消
+  import MenuList from '../sys/menu/MenuList'
+
   export default {
     //import引入的组件需要注入到对象中才能使用
     components: {
       NavBar,
       SideBar,
       MainBody,
+      MenuList,
     },
     data() {
       //这里存放数据
